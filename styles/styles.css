@@ -14,19 +14,6 @@
 
 /* Design tokens (colors, fonts, sizes, spacing) live in brand.css */
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
 body {
   display: none;
   margin: 0;
@@ -62,13 +49,12 @@ h4,
 h5,
 h6 {
   margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.4em;
   color: var(--heading-color);
   font-family: var(--heading-font-family);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.2px;
-  scroll-margin: 40px;
+  scroll-margin: var(--nav-height);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -150,17 +136,29 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
+  border: 2px solid var(--dark-color);
   border-radius: 2.4em;
   padding: 0.65em 1.6em;
+  background-color: var(--dark-color);
+  color: var(--background-color);
   font: inherit;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
   white-space: normal;
   overflow-wrap: break-word;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+a.button:any-link:hover,
+a.button:any-link:focus-visible,
+button.button:hover,
+button.button:focus-visible {
+  border-color: var(--saga-navy-mid);
+  background-color: var(--saga-navy-mid);
+  color: var(--background-color);
+  text-decoration: none;
 }
 
 a.button:active,
@@ -176,8 +174,8 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
   color: var(--background-color);
 }
 
@@ -185,10 +183,10 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
+  border-color: var(--saga-navy-mid);
+  background-color: var(--saga-navy-mid);
   color: var(--background-color);
-  box-shadow: 0 4px 12px rgb(60 16 83 / 30%);
+  box-shadow: 0 4px 12px rgb(20 36 92 / 30%);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -241,9 +239,9 @@ a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--nw-purple-mid);
-  background-color: var(--nw-purple-mid);
-  box-shadow: 0 4px 12px rgb(60 16 83 / 40%);
+  border-color: var(--saga-navy-mid);
+  background-color: var(--saga-navy-mid);
+  box-shadow: 0 4px 12px rgb(20 36 92 / 40%);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -321,23 +319,23 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-main .section.purple-tint {
-  background-color: var(--nw-purple-tint);
+main .section.lilac-tint {
+  background-color: var(--saga-lilac-tint);
   margin: 0;
   padding: 40px 0;
 }
 
-/* purple-tint: primary CTA uses deep purple for contrast on tinted background */
-main .section.purple-tint a.button.primary:any-link {
+/* lilac-tint: primary CTA uses deep navy for contrast on tinted background */
+main .section.lilac-tint a.button.primary:any-link {
   background-color: var(--dark-color);
   border-color: var(--dark-color);
 }
 
-main .section.purple-tint a.button.primary:hover,
-main .section.purple-tint a.button.primary:focus-visible {
-  background-color: var(--nw-purple-mid);
-  border-color: var(--nw-purple-mid);
-  box-shadow: 0 4px 12px rgb(60 16 83 / 40%);
+main .section.lilac-tint a.button.primary:hover,
+main .section.lilac-tint a.button.primary:focus-visible {
+  background-color: var(--saga-navy-mid);
+  border-color: var(--saga-navy-mid);
+  box-shadow: 0 4px 12px rgb(20 36 92 / 40%);
 }
 
 /* default-content CTA groups: consistent spacing between stacked CTAs.
@@ -346,8 +344,8 @@ main .section > div:not([class*="-container"]) p.button-wrapper + p.button-wrapp
   margin-top: 12px;
 }
 
-/* purple-tint: secondary CTA becomes a plain underlined text link */
-main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:any-link {
+/* lilac-tint: secondary CTA becomes a plain underlined text link */
+main .section.lilac-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:any-link {
   display: inline;
   background-color: transparent;
   border: none;
@@ -361,8 +359,8 @@ main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.
   box-shadow: none;
 }
 
-main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:hover,
-main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:focus-visible {
+main .section.lilac-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:hover,
+main .section.lilac-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:focus-visible {
   background-color: transparent;
   border-color: transparent;
   color: var(--dark-color);
@@ -379,6 +377,13 @@ main .section.swoosh {
 
 main .section.dark {
   background-color: var(--dark-color);
+}
+
+/* Guard against a dark section butting straight into the (also navy) footer
+   with no visual break - the real site never stacks two navy bands, so add
+   a subtle separator if content authoring ever ends a page this way. */
+main .section.dark:last-child {
+  border-bottom: 1px solid rgb(255 255 255 / 15%);
 }
 
 main .section.dark h1,
@@ -402,10 +407,10 @@ main .section.swoosh a:any-link {
   text-decoration: underline;
 }
 
-/* swoosh: purple banner with a hand-drawn pink underline accent below the heading,
-   e.g. "Our brands" - see brand.css for --nw-pink-accent */
+/* swoosh: navy banner with a hand-drawn coral underline accent below the heading,
+   e.g. "Our brands" - see brand.css for --saga-coral */
 main .section.swoosh {
-  background-color: var(--nw-purple-mid);
+  background-color: var(--saga-navy-mid);
 }
 
 main .section.swoosh h1,
@@ -430,7 +435,7 @@ main .section.swoosh h6::after {
   bottom: -0.3em;
   width: 106%;
   height: 0.18em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 30' preserveAspectRatio='none'%3E%3Cpath d='M6,15 C100,3 200,23 294,11' stroke='%23f0195b' stroke-width='17' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 30' preserveAspectRatio='none'%3E%3Cpath d='M6,15 C100,3 200,23 294,11' stroke='%23e07b39' stroke-width='17' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -466,7 +471,7 @@ main .section.checklist li::before {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--nw-purple-mid, var(--link-color));
+  color: var(--link-color);
   font-weight: 700;
 }
 
@@ -484,11 +489,11 @@ main .section.guides .columns > div {
 
 main .section.guides .columns > div > div {
   padding-top: 12px;
-  border-top: 3px solid var(--nw-pink-accent, var(--link-color));
+  border-top: 3px solid var(--saga-lilac);
 }
 
 main .section.guides .columns > div > div:nth-child(2) {
-  border-top-color: var(--nw-orange-accent, var(--dark-color));
+  border-top-color: var(--saga-coral);
 }
 
 main .section.guides ul {
@@ -501,7 +506,7 @@ main .section.guides li {
   margin-bottom: 12px;
 }
 
-/* with-sidebar: single-column article body (matches natwest.com's own article
+/* with-sidebar: single-column article body (matches Saga's own article
    template - no floating rail, no hero image; the toc sits inline right
    after the byline, and related-articles is a full-width card grid at the
    end). Keeping the style name for backwards compatibility with authored

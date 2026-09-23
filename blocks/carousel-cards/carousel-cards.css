@@ -41,7 +41,7 @@
 
 .carousel-cards .carousel-cards-slide .carousel-cards-slide-image picture > img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
