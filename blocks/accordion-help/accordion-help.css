@@ -29,7 +29,7 @@
 .accordion-help details[open] summary,
 .accordion-help details summary:focus,
 .accordion-help details summary:hover {
-  background-color: var(--dark-color, #e5e5f0);
+  background-color: rgb(30 50 130 / 8%);
 }
 
 .accordion-help details summary::-webkit-details-marker {
