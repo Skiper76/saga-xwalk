@@ -138,8 +138,8 @@
             "value": "highlight"
           },
           {
-            "name": "Purple tint",
-            "value": "purple-tint"
+            "name": "Lilac tint",
+            "value": "lilac-tint"
           },
           {
             "name": "Dark",
@@ -339,6 +339,25 @@
     ]
   },
   {
+    "id": "cards-promo-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -385,7 +404,7 @@
         "label": "Content Fragment",
         "valueType": "string",
         "validation": {
-          "rootPath": "/content/dam/natwest-xwalk"
+          "rootPath": "/content/dam/saga"
         }
       },
       {
@@ -407,6 +426,25 @@
     ]
   },
   {
+    "id": "columns",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
     "id": "contentfragment",
     "fields": [
       {
@@ -424,7 +462,14 @@
         "value": "",
         "valueType": "string",
         "description": "Persisted variation for publish; leave empty for master.",
-        "condition": { "==": [ { "var": "__alwaysFalse" }, true ] }
+        "condition": {
+          "==": [
+            {
+              "var": "__alwaysFalse"
+            },
+            true
+          ]
+        }
       },
       {
         "component": "select",
@@ -471,48 +516,6 @@
             "value": "text-center"
           }
         ]
-      },
-      {
-        "component": "select",
-        "name": "ctastyle",
-        "label": "CTA Style",
-        "options": [
-         {
-            "name": "Link",
-            "value": "cta-link"
-          },
-          {
-            "name": "Primary Button",
-            "value": "cta-button"
-          },
-          {
-            "name": "Secondary Button",
-            "value": "cta-button-secondary"
-          },
-          {
-            "name": "Dark Button",
-            "value": "cta-button-dark"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "columns",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
       }
     ]
   },
@@ -549,8 +552,8 @@
             "value": "brand-center"
           },
           {
-            "name": "Light",
-            "value": "light"
+            "name": "Dark band",
+            "value": "dark"
           }
         ]
       }

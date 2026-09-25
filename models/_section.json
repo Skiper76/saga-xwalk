@@ -35,8 +35,8 @@
               "value": "highlight"
             },
             {
-              "name": "Purple tint",
-              "value": "purple-tint"
+              "name": "Lilac tint",
+              "value": "lilac-tint"
             },
             {
               "name": "Dark",
@@ -84,6 +84,7 @@
         "cards",
         "cards-account",
         "cards-cover",
+        "cards-promo",
         "cards-icon",
         "carousel-cards",
         "columns",

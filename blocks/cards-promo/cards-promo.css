@@ -1,0 +1,75 @@
+/* cards-promo — a row of promotional pods, e.g. the homepage's
+   "Welcome Lorraine Kelly" / "2027 Boutique River Cruises" / "Easy access
+   savings" row on saga.co.uk. Each pod is a coloured panel with a banner
+   image, uppercase heading, description and a single CTA button. */
+
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-promo > ul > li {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  color: var(--text-color);
+}
+
+/* three colours cycle across the pods */
+.cards-promo > ul > li:nth-child(3n + 1) { background-color: var(--saga-teal-tint); }
+.cards-promo > ul > li:nth-child(3n + 2) { background-color: #fbb175; }
+.cards-promo > ul > li:nth-child(3n + 3) { background-color: var(--saga-lilac); }
+
+.cards-promo-card-image {
+  line-height: 0;
+  margin-bottom: 24px;
+}
+
+.cards-promo-card-image img {
+  width: 100%;
+  aspect-ratio: 400 / 170;
+  object-fit: cover;
+  display: block;
+}
+
+.cards-promo-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 24px 32px;
+}
+
+.cards-promo-card-body h1,
+.cards-promo-card-body h2,
+.cards-promo-card-body h3,
+.cards-promo-card-body h4 {
+  margin: 0 0 12px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: var(--dark-color);
+}
+
+.cards-promo-card-body p:not(.button-container) {
+  margin: 0 0 16px;
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+}
+
+/* push the CTA to the bottom so buttons align across pods of unequal text */
+.cards-promo-card-body .button-container {
+  margin: 0;
+  margin-top: auto;
+}
+
+@media (width >= 900px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

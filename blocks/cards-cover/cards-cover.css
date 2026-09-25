@@ -44,7 +44,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--nw-purple-bright, var(--link-color));
+  color: var(--link-color);
   font-weight: 700;
   text-decoration: none;
 }
@@ -54,7 +54,7 @@
   flex: 0 0 auto;
   width: 16px;
   height: 16px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235e10b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%232e8b96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
   background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.2s ease;

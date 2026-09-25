@@ -1,40 +1,44 @@
 /*
- * NatWest brand design tokens
- * Extracted from https://www.natwest.com/
+ * Saga brand design tokens, extracted from https://www.saga.co.uk/
+ * (cross-checked against the real Saga logo pulled from AEM DAM, and against
+ * a second reference build of this site — see saga-da sibling project).
+ * Font: Figtree (Google Fonts, loaded in head.html) — the closest free
+ * fallback for Saga's proprietary "Ambit" typeface.
  */
 
 :root {
   /* brand palette */
-  --nw-purple: #3c1053;          /* signature deep purple */
-  --nw-purple-mid: #5a287d;      /* header / nav band */
-  --nw-purple-bright: #5e10b1;   /* links & primary CTAs */
-  --nw-purple-tint: #f2eaf9;     /* light purple surface */
-  --nw-grey-tint: #f2f2f8;       /* light grey surface */
-  --nw-grey-text: #646068;       /* body text */
-  --nw-pink-accent: #f0195b;     /* swoosh underline accent */
-  --nw-orange-accent: #c33c21;   /* ranking-chart bars / regulatory disclosures */
+  --saga-navy: #1e3282;          /* signature brand blue */
+  --saga-navy-mid: #14225a;      /* hover / pressed state */
+  --saga-teal: #4aa6b5;          /* links & secondary accents */
+  --saga-teal-tint: #f0f3fa;     /* light surface */
+  --saga-grey-tint: #f0f3fa;     /* light grey surface */
+  --saga-grey-text: #232323;     /* body text */
+  --saga-coral: #ec7a2f;         /* cruises/holidays promo accent */
+  --saga-lilac: #c9bfe0;         /* money/savings promo accent */
+  --saga-lilac-tint: #f6efe4;    /* light champagne surface */
 
   /* semantic colors */
   --background-color: #fff;
-  --light-color: var(--nw-grey-tint);
-  --dark-color: var(--nw-purple);
-  --text-color: var(--nw-grey-text);
-  --heading-color: var(--nw-purple);
-  --link-color: var(--nw-purple-bright);
-  --link-hover-color: var(--nw-purple);
+  --light-color: var(--saga-grey-tint);
+  --dark-color: var(--saga-navy);
+  --text-color: var(--saga-grey-text);
+  --heading-color: var(--saga-navy);
+  --link-color: var(--saga-teal);
+  --link-hover-color: var(--saga-navy);
 
-  /* fonts (proprietary NatWest faces with fallbacks) */
-  --heading-font-family: knileblack, "Knile", georgia, serif;
-  --heading-font-family-bold: knilebold, "Knile", georgia, serif;
-  --body-font-family: "RNHouseSansRegular", arial, helvetica, sans-serif;
+  /* fonts */
+  --heading-font-family: "Figtree", figtree-fallback, arial, sans-serif;
+  --heading-font-family-bold: "Figtree", figtree-fallback, arial, sans-serif;
+  --body-font-family: "Figtree", figtree-fallback, arial, sans-serif;
 
   /* heading sizes (desktop) */
   --heading-font-size-xxl: 48px;
   --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
   /* body sizes */
   --body-font-size-m: 18px;
@@ -44,15 +48,15 @@
   /* spacing */
   --section-padding: 40px;
   --content-max-width: 1200px;
-  --nav-height: 61px;
+  --nav-height: 74px;
 }
 
 @media (width < 900px) {
   :root {
-    --heading-font-size-xxl: 34px;
+    --heading-font-size-xxl: 36px;
     --heading-font-size-xl: 30px;
-    --heading-font-size-l: 26px;
-    --heading-font-size-m: 22px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 20px;
     --heading-font-size-s: 18px;
     --heading-font-size-xs: 16px;
     --body-font-size-m: 18px;

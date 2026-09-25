@@ -2,7 +2,7 @@
  * CF Card Block
  * Renders a Content Fragment (Product Card model) referenced by the
  * "reference" field, either as a styled card or as its raw JSON.
- * Queries the "natwest" GraphQL endpoint (/content/cq:graphql/global/endpoint)
+ * Queries the "saga" GraphQL endpoint (/content/cq:graphql/global/endpoint)
  * for the fragment at that path. This is a same-origin, credentialed
  * request, so it only resolves when viewed through an authenticated AEM
  * session (author host / Universal Editor) today — anonymous public

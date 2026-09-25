@@ -1,10 +1,13 @@
-/* header and nav layout */
+/* header and nav layout: light surface by default (real Saga header is white
+   with a navy wordmark), with a "Dark band" layout option for contrast pages */
 header .nav-wrapper {
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
   width: 100%;
-  z-index: 2;
-  position: fixed;
+  z-index: 20;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgb(30 50 130 / 8%);
 }
 
 header nav {
@@ -32,10 +35,6 @@ header nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-  }
-
   header nav {
     display: flex;
     justify-content: space-between;
@@ -56,7 +55,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: var(--background-color);
+  color: var(--text-color);
 }
 
 /* hamburger */
@@ -140,7 +139,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* brand - Saga logo + anniversary badge, side by side */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -149,9 +148,35 @@ header .nav-brand {
   line-height: 1;
 }
 
+header nav .nav-brand .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header nav .nav-brand p {
+  margin: 0;
+  line-height: 0;
+}
+
 header nav .nav-brand img {
-  width: 140px;
+  display: block;
+  width: auto;
+}
+
+header nav .nav-brand p:first-child img {
+  width: 130px;
   height: auto;
+}
+
+header nav .nav-brand p:nth-child(2) img {
+  height: 32px;
+}
+
+@media (width < 600px) {
+  header nav .nav-brand p:nth-child(2) {
+    display: none;
+  }
 }
 
 /* sections */
@@ -175,7 +200,7 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  color: var(--background-color);
+  color: var(--text-color);
   font-weight: 700;
 }
 
@@ -273,7 +298,16 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
-/* ===== NatWest branding ===== */
+/* the two CTAs are plain default content, so EDS wraps them in a
+   default-content-wrapper - that's the actual flex row, not nav-tools itself */
+header nav .nav-tools .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== Saga branding ===== */
 
 /* Neutralize EDS button-pill styling on top-level nav links (decorateButtons
    turns single links into a.button — nav items should be plain text links). */
@@ -288,7 +322,7 @@ header nav .nav-sections a.button:any-link {
   border-radius: 0;
   padding: 0;
   background: none;
-  color: var(--background-color);
+  color: var(--text-color);
   font-size: inherit;
   font-weight: 700;
   text-decoration: none;
@@ -301,15 +335,19 @@ header nav .nav-sections a.button:focus {
   text-decoration: underline;
 }
 
-/* Log in CTA in tools slot */
+/* CTAs in tools slot: Contact us (filled) + Log in (outline) */
+header nav .nav-tools .button-wrapper {
+  margin: 0;
+}
+
 header nav .nav-tools a:any-link {
   display: inline-block;
   margin: 0;
-  border: 2px solid var(--background-color);
+  border: 2px solid var(--dark-color);
   border-radius: 2.4em;
   padding: 0.4em 1.4em;
   background: none;
-  color: var(--background-color);
+  color: var(--dark-color);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
@@ -317,8 +355,20 @@ header nav .nav-tools a:any-link {
 
 header nav .nav-tools a:hover,
 header nav .nav-tools a:focus {
-  background-color: var(--background-color);
-  color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
+}
+
+header nav .nav-tools a.button.primary:any-link {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+}
+
+header nav .nav-tools a.button.primary:hover,
+header nav .nav-tools a.button.primary:focus {
+  background-color: var(--saga-navy-mid);
+  border-color: var(--saga-navy-mid);
+  color: var(--background-color);
 }
 
 @media (width >= 900px) {
@@ -345,10 +395,10 @@ header nav .nav-tools a:focus {
   }
 }
 
-/* mobile: sub-links indent, purple-on-white when expanded panel */
+/* mobile: sub-links indent when expanded panel */
 @media (width < 900px) {
   header nav[aria-expanded='true'] .nav-sections ul > li > ul > li a:any-link {
-    color: var(--background-color);
+    color: var(--text-color);
   }
 }
 
@@ -387,41 +437,50 @@ header nav .nav-tools a:focus {
   }
 }
 
-/* light: header on a light surface instead of the default purple band */
-header .header.light .nav-wrapper {
-  background-color: var(--background-color);
-  color: var(--text-color);
+/* dark band: filled navy header, e.g. for pages that need more contrast with a hero image */
+header .header.dark .nav-wrapper {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  border-bottom: 0;
 }
 
-header .header.light nav a:any-link {
-  color: var(--text-color);
-}
-
-header .header.light .nav-sections ul > li {
-  color: var(--text-color);
-}
-
-header .header.light .nav-sections a.button:any-link {
-  color: var(--text-color);
-}
-
-header .header.light .nav-tools a:any-link {
-  border-color: var(--text-color);
-  color: var(--text-color);
-}
-
-header .header.light .nav-tools a:hover,
-header .header.light .nav-tools a:focus {
-  background-color: var(--text-color);
+header .header.dark nav a:any-link {
   color: var(--background-color);
 }
 
-@media (width >= 900px) {
-  header .header.light .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    background-color: var(--light-color);
-  }
+header .header.dark .nav-sections ul > li {
+  color: var(--background-color);
+}
 
-  header .header.light .nav-sections .default-content-wrapper > ul > li > ul::before {
-    border-bottom-color: var(--light-color);
+header .header.dark .nav-sections a.button:any-link {
+  color: var(--background-color);
+}
+
+header .header.dark .nav-tools a:any-link {
+  border-color: var(--background-color);
+  color: var(--background-color);
+}
+
+header .header.dark .nav-tools a:hover,
+header .header.dark .nav-tools a:focus {
+  background-color: var(--background-color);
+  color: var(--dark-color);
+}
+
+header .header.dark .nav-tools a.button.primary:any-link {
+  background-color: var(--background-color);
+  color: var(--dark-color);
+}
+
+header .header.dark .nav-tools a.button.primary:hover,
+header .header.dark .nav-tools a.button.primary:focus {
+  background-color: var(--saga-teal-tint);
+  border-color: var(--saga-teal-tint);
+  color: var(--dark-color);
+}
+
+@media (width < 900px) {
+  header .header.dark nav[aria-expanded='true'] .nav-sections ul > li > ul > li a:any-link {
+    color: var(--background-color);
   }
 }
