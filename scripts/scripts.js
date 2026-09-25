@@ -14,6 +14,7 @@ import {
   runExperimentation,
   runExperimentationLazy,
 } from './experiment-loader.js';
+import showDemoNotice from './demo-notice.js';
 
 const experimentationConfig = {
   prodHost: 'main--saga-xwalk--skiper76.aem.live',
@@ -182,6 +183,7 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
   await runExperimentationLazy(doc, experimentationConfig);
+  showDemoNotice();
 }
 
 /**
