@@ -1,0 +1,98 @@
+/* Demo/prototype disclaimer modal - see scripts/demo-notice.js */
+
+body.demo-notice-open {
+  overflow: hidden;
+}
+
+.demo-notice-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0 0 0 / 55%);
+  padding: 16px;
+}
+
+.demo-notice-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background-color: var(--background-color);
+  border-top: 6px solid var(--saga-coral);
+  padding: 32px 32px 28px;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 30%);
+}
+
+.demo-notice-eyebrow {
+  margin: 0 0 8px;
+  color: var(--saga-coral);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-notice-dialog h2 {
+  margin: 0 0 16px;
+  font-size: var(--heading-font-size-l);
+}
+
+.demo-notice-dialog p {
+  margin: 0 0 16px;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.demo-notice-primary {
+  display: block;
+  width: 100%;
+  border: 2px solid var(--saga-coral);
+  border-radius: 4px;
+  background-color: var(--saga-coral);
+  color: var(--background-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.demo-notice-primary:hover,
+.demo-notice-primary:focus-visible {
+  background-color: var(--saga-navy-mid);
+  border-color: var(--saga-navy-mid);
+}
+
+.demo-notice-secondary {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--dark-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 20px;
+}
+
+.demo-notice-secondary:hover,
+.demo-notice-secondary:focus-visible {
+  background-color: var(--saga-teal-tint);
+}
+
+@media (width < 600px) {
+  .demo-notice-dialog {
+    padding: 24px 20px 20px;
+  }
+}
