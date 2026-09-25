@@ -67,7 +67,7 @@ export default async function decorate(block) {
   // read the last cell so both shapes work.
   const cells = [...block.children];
   const limitCell = cells[cells.length - 1];
-  const path = '/index/articles';
+  const path = '/magazine';
   const limitText = limitCell ? limitCell.textContent.trim() : '';
   const limit = limitText ? parseInt(limitText, 10) : 0;
   block.textContent = '';
